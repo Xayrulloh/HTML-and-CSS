@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js"></script>
+    <title>Find Number</title>
+</head>
+<body>
+    <div class="main">
+        <div class="main__baby">
+            <h2 class="header__text">Choose the minimum and maximum numbers. Between numbers should be different with 5 number</h2>
+            <div class="from-to">
+                <h3 class="from">
+                    Min:
+                    <input type="number" class="from" id="from" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;">
+                </h3>
+                <h3 class="to">
+                    Max:
+                    <input type="number" class="to" id="to" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;">
+                </h3>
+            </div>
+            <div class="submit">
+                <input type="number" class="guess" id="guess" pattern="/^-?\d+\.?\d*$/" onkeyup="bridge(event)" onKeyPress="if(this.value.length==4) return false;">
+                <button type="submit" onclick="check()">GUESS</button>
+            </div>
+            <h3 class="advance" id="advance"></h3>
+        </div>
+    </div>
+</body>
+</html>

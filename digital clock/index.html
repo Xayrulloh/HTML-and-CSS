@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="time">
+        <div class="circle" style="--clr:#ff2972;">
+            <div class="dots hr_dot" id="hr_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00</div>
+        </div>
+        <div class="circle" style="--clr:#fee800;">
+            <div class="dots min_dot" id="min_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00</div>
+        </div>
+        <div class="circle" style="--clr:#04fc43;">
+            <div class="dots sec_dot" id="sec_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00</div>
+        </div>
+        <div class="ap">
+            <idv id="ampm"></idv>
+        </div>
+    </div>
+    <script>
+        setInterval(() => {
+            let h = new Date().getHours(), m = new Date().getMinutes(), s = new Date().getSeconds();
+            hours.innerHTML = (h > 12) ? h -12 : h, minutes.innerHTML = m, seconds.innerHTML = s, ampm = h >= 12 ? 'PM' : 'AM', hours.innerHTML = (h < 10) ? '0' + h + '<br><span>Hours</span>' : h + '<br><span>Hours</span>', minutes.innerHTML = (m < 10) ? '0' + m + '<br><span>Minutes</span>' : m + '<br><span>Minutes</span>', seconds.innerHTML = (s < 10) ? '0' + s + '<br><span>Seconds</span>' : s + '<br><span>Seconds</span>', hh.style.strokeDashoffset = 440 - (440 * h) / 12, mm.style.strokeDashoffset = 440 - (440 * m) / 60, ss.style.strokeDashoffset = 440 - (440 * s) / 60, hr_dot.style.transform = `rotate(${h * 30}deg)`, min_dot.style.transform = `rotate(${m * 6}deg)`, sec_dot.style.transform = `rotate(${s * 6}deg)`;
+        })
+    </script>
+</body>
+</html>
